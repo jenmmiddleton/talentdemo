@@ -8,5 +8,5 @@ public class Product {
 
     String name;
 
-    Price price;
+    Price currentPrice;
 }

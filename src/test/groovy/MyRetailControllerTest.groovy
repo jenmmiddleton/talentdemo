@@ -18,18 +18,6 @@ class MyRetailControllerTest extends Specification {
         )
     }
 
-    def "GetProduct returns a Product if id is an Integer"() {
-        given:
-            Integer id = 15117729
-
-        when:
-            def response = myRetailController.getProduct(id)
-
-        then:
-            response instanceof Product
-            response.getId() == id
-    }
-
     def "GetProduct should call MyRetailService"() {
         given:
             Integer id = 15117729
@@ -49,6 +37,8 @@ class MyRetailControllerTest extends Specification {
             def response = myRetailController.getProduct(id)
 
         then:
+            response instanceof Product
+            response.getId() == id
             1 * myRetailService.getProduct(id) >> product
             response == product
     }
