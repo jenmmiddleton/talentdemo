@@ -1,4 +1,5 @@
 import com.frudence.talentdemo.controller.MyRetailController
+import com.frudence.talentdemo.model.Product
 import spock.lang.Specification
 import spock.lang.Subject
 
