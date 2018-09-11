@@ -8,6 +8,9 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders
 import spock.lang.Specification
 import spock.lang.Subject
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
+
 class MyRetailControllerTest extends Specification {
 
     @Subject
@@ -66,12 +69,12 @@ class MyRetailControllerTest extends Specification {
             )
 
         when:
-            MvcResult mvcResult = mockMvc.perform(get("/products/" + id))
-                                         .andExpect(status().isOk())
-                                         .andReturn()
+        MvcResult mvcResult = mockMvc.perform(get("/products/" + id))
+                .andExpect(status().isOk())
+                .andReturn()
 
         then:
             1 * productService.getProduct(id) >> product
-            mvcResult.getResponse().getContentAsString() == "{\"id\":15117729,\"name\":\"Avatar\",\"current_price\":{\"value\":5.0,\"currency_code\":\"USD\"}}"
+            mvcResult.getResponse().getContentAsString() == "{\"id\":15117729,\"name\":\"Avatar\",\"current_price\":{\"id\":15117729,\"value\":5.0,\"currency_code\":\"USD\"}}"
     }
 }

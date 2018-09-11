@@ -3,15 +3,17 @@ package com.frudence.talentdemo.controller;
 import com.frudence.talentdemo.model.Product;
 import com.frudence.talentdemo.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
+@RequestMapping("/products")
 public class MyRetailController {
 
     @Autowired
     ProductService productService;
 
-    public Product getProduct (Integer id) {
+    @GetMapping(value="/{id}")
+    public Product getProduct (@PathVariable Integer id) {
         return productService.getProduct(id);
     }
 }
