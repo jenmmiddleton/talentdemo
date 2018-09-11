@@ -1,0 +1,8 @@
+package com.frudence.talentdemo.exception;
+
+public class ProductNotFoundException extends RuntimeException {
+
+    public ProductNotFoundException(String message) {
+        super(message);
+    }
+}
