@@ -5,6 +5,8 @@ import com.frudence.talentdemo.model.Product;
 public class MyRetailController {
 
     public Product getProduct (Integer id) {
-        return new Product();
+        Product product = new Product();
+        product.setId(id);
+        return product;
     }
 }
