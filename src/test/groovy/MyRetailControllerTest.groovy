@@ -1,7 +1,7 @@
 import com.frudence.talentdemo.controller.MyRetailController
 import com.frudence.talentdemo.model.Price
 import com.frudence.talentdemo.model.Product
-import com.frudence.talentdemo.service.MyRetailService
+import com.frudence.talentdemo.service.ProductService
 import spock.lang.Specification
 import spock.lang.Subject
 
@@ -10,11 +10,11 @@ class MyRetailControllerTest extends Specification {
     @Subject
     MyRetailController myRetailController
 
-    MyRetailService myRetailService = Mock()
+    ProductService productService = Mock()
 
     void setup() {
         myRetailController = new MyRetailController(
-                myRetailService: myRetailService
+                productService: productService
         )
     }
 
@@ -39,7 +39,7 @@ class MyRetailControllerTest extends Specification {
         then:
             response instanceof Product
             response.getId() == id
-            1 * myRetailService.getProduct(id) >> product
+            1 * productService.getProduct(id) >> product
             response == product
     }
 }

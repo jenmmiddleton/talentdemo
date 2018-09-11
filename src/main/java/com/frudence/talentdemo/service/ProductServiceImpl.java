@@ -4,7 +4,7 @@ import com.frudence.talentdemo.model.Product;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MyRetailServiceImpl implements MyRetailService {
+public class ProductServiceImpl implements ProductService {
     @Override
     public Product getProduct(Integer id) {
         return null;
