@@ -14,12 +14,13 @@ class MyRetailControllerTest extends Specification {
 
     def "GetProduct returns a Product if id is an Integer"() {
         given:
-            def id = 15117729
+            Integer id = 15117729
 
         when:
             def response = myRetailController.getProduct(id)
 
         then:
             response instanceof Product
+            response.getId() == id
     }
 }
