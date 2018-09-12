@@ -1,3 +1,5 @@
+package com.frudence.talentdemo.controller
+
 import com.frudence.talentdemo.controller.MyRetailController
 import com.frudence.talentdemo.exception.ProductNotFoundException
 import com.frudence.talentdemo.model.Price
