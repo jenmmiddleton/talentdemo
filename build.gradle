@@ -38,4 +38,7 @@ dependencies {
     testRuntime "net.bytebuddy:byte-buddy:1.6.5"                // allows mocking of classes (in addition to interfaces)
     testRuntime "org.objenesis:objenesis:2.5.1"                 // allows mocking of classes without default constructor (together with CGLIB)
 
+    // Feign
+    compile 'io.github.openfeign:feign-core:10.0.1'
+    compile 'io.github.openfeign:feign-gson:10.0.1'
 }
