@@ -20,7 +20,11 @@ public class TalentdemoApplication implements CommandLineRunner {
 
         // Initialize Data
         priceRepository.save(new Price(13860428, 13.49, "USD"));
-        priceRepository.save(new Price(99999, 99.49, "USD"));
+        priceRepository.save(new Price(15117729, 999.99, "JPY"));
+        priceRepository.save(new Price(16483589, 36.50, "USD"));
+        priceRepository.save(new Price(16696652, 75.25, "AUD"));
+        priceRepository.save(new Price(16752456, 1.00, "USD"));
+        priceRepository.save(new Price(15643793, 5.57, "CSD"));
     }
 
     public static void main(String[] args) {
