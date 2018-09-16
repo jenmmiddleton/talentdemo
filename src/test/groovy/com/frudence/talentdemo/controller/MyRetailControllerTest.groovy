@@ -78,7 +78,7 @@ class MyRetailControllerTest extends Specification {
 
         then:
             1 * productService.getProduct(id) >> product
-            mvcResult.getResponse().getContentAsString() == "{\"id\":15117729,\"name\":\"Avatar\",\"current_price\":{\"id\":15117729,\"value\":5.0,\"currency_code\":\"USD\"}}"
+            mvcResult.getResponse().getContentAsString() == "{\"id\":15117729,\"name\":\"Avatar\",\"current_price\":{\"value\":5.0,\"currency_code\":\"USD\"}}"
     }
 
     def "GetProduct should return a ProductNotFoundException if the id doesn't have an associated Product"() {
