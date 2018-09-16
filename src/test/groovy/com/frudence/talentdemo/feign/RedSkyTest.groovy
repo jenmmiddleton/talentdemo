@@ -20,4 +20,12 @@ class RedSkyTest extends Specification {
             response instanceof String
             response == "The Big Lebowski (Blu-ray)"
     }
+
+    def "Exception when title does not exist"() {
+        when:
+            def response = redSky.getTitle(99999)
+
+        then:
+            thrown Exception
+    }
 }
