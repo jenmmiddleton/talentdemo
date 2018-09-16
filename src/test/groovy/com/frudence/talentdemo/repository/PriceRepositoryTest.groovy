@@ -1,12 +1,16 @@
 package com.frudence.talentdemo.repository
 
 import com.frudence.talentdemo.model.Price
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest
 import spock.lang.Specification
 import spock.lang.Subject
 
+@DataMongoTest
 class PriceRepositoryTest extends Specification {
 
     @Subject
+    @Autowired
     PriceRepository priceRepository
 
     def "findById returns a price"() {
