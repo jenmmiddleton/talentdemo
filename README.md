@@ -54,12 +54,38 @@ In a browser window, navigate to: [http://localhost:8080/products/13860428](htt
 
 ```
 {
-	"id": 13860428
-	"name": "The Big Lebowski [Blu-ray]"
-	"current_price": {
-		"value": 13.49
-		"currency_code": "USD"
-	}
+    "id": 13860428,
+    "name": "The Big Lebowski (Blu-ray)",
+    "current_price": {
+        "value": 13.49,
+        "currency_code": "USD"
+    }
 }
 ```
 
+
+Demonstrate GET Request for missing entry in RedSky
+-----------------------
+In a browser window, navigate to: [http://localhost:8080/products/15643793](http://localhost:8080/products/15643793) where it should display the following JSON structure:
+
+```
+{
+    "id": 15643793,
+    "current_price": {
+        "value": 5.57,
+        "currency_code": "CSD"
+    }
+}
+```
+
+
+
+Demonstrate GET Request for missing entry in MongoDB
+-----------------------
+In a browser window, navigate to: [http://localhost:8080/products/9999](http://localhost:8080/products/9999) where it should display the following JSON structure:
+
+```
+{
+    "id": 9999
+}
+```
