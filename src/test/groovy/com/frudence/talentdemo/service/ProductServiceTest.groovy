@@ -56,4 +56,20 @@ class ProductServiceTest extends Specification {
             response.getName() == null
             response.getCurrentPrice() == price
     }
+
+    def "GetProduct should return other available fields if the Price does not exist for a given ID"() {
+        given:
+            Integer id = 16752456
+
+        when:
+            def response = productService.getProduct(id)
+
+        then:
+            1 * redSky.getTitle(id) >> "Helter Skelter"
+            1 * priceRepository.findById(id) >> Optional.empty()
+            response instanceof Product
+            response.getId() == id
+            response.getName() == "Helter Skelter"
+            response.getCurrentPrice() == null
+    }
 }
