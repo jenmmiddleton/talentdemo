@@ -1,7 +1,5 @@
 package com.frudence.talentdemo.controller
 
-import com.frudence.talentdemo.controller.MyRetailController
-import com.frudence.talentdemo.exception.ProductNotFoundException
 import com.frudence.talentdemo.model.Price
 import com.frudence.talentdemo.model.Product
 import com.frudence.talentdemo.service.ProductService
@@ -72,25 +70,12 @@ class MyRetailControllerTest extends Specification {
             )
 
         when:
-        MvcResult mvcResult = mockMvc.perform(get("/products/" + id))
+            MvcResult mvcResult = mockMvc.perform(get("/products/" + id))
                 .andExpect(status().isOk())
                 .andReturn()
 
         then:
             1 * productService.getProduct(id) >> product
             mvcResult.getResponse().getContentAsString() == "{\"id\":15117729,\"name\":\"Avatar\",\"current_price\":{\"value\":5.0,\"currency_code\":\"USD\"}}"
-    }
-
-    def "GetProduct should return a ProductNotFoundException if the id doesn't have an associated Product"() {
-        given:
-            Integer id = 123
-            productService.getProduct(id) >> { throw new ProductNotFoundException(id.toString()) }
-
-        when:
-            def response = myRetailController.getProduct(id)
-
-        then:
-            def e = thrown ProductNotFoundException
-            e.getMessage() == id.toString()
     }
 }
