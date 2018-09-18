@@ -22,14 +22,17 @@ public class ProductServiceImpl implements ProductService {
         Product product = new Product();
         product.setId(id);
 
-        String title = redSky.getTitle(id);
-        product.setName(title);
+        try {
+            String title = redSky.getTitle(id);
+            product.setName(title);
+        } catch (Exception e) {
+            // Don't do anything
+        }
 
         Optional<Price> price = priceRepository.findById(id);
         if (price.isPresent()) {
             product.setCurrentPrice(price.get());
         }
-
         return product;
     }
 }
